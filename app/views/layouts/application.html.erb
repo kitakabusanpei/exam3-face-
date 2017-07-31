@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>facedog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <ul class="list-inline">
+            <li><a href="#"><%= link_to "", root_path, class: "glyphicon glyphicon-phone" %></a></li>
+            <li><a href="#">名前</a></li>
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#">検索</a></li>
+            <li><a href="#">ユーザー一覧</a></li>
+          </ul>
+
+        <!-- 検索 -->
+        <!-- <form class="navbar-form">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="残念ですが検索できません" size="30">
+          </div>
+          <button class="btn btn-default glyphicon glyphicon-search"></button>
+        </form> -->
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<%= yield %>
+
+  <footer>
+    <p>©2017-2017 facedog</p>
+  </footer>
+
+</body>
+</html>

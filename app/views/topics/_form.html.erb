@@ -1,0 +1,23 @@
+<%= form_for(@topic) do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @topic.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% @topic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :投稿作品 %>
+  <%= f.text_field :content, class: 'form-control' %>
+  <br>
+  <%= f.label :写真%>
+  <%= f.file_field :photo %>
+
+  <br>
+  <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+<% end %>
+<!-- routesでrootにしているから -->
+<%= link_to "作品一覧に戻る", root_path %>

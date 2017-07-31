@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h2>投稿作品集</h2>
+    <%= link_to "作品を投稿する", new_topic_path %>
+    <% @topics.each do |topic| %>
+      <div class="row">
+        <p>さんがコメントしました。</p>
+        <!-- 下線用予定 -->
+        <!-- ユーザー写真 --><!-- ユーザー名 -->
+                           <!-- 投稿時間 -->
+        <p><%= topic.content %></p>
+        <p><%= image_tag topic.photo %></p>
+        <%= link_to "作品を編集する", edit_topic_path(topic.id) %><!-- 余裕があればアラートで編集、削除機能にする -->
+        <%= link_to "作品を削除する", topic_path(topic.id), method: :delete %>
+        <div></div> <!-- 下線用予定 -->
+        <!-- いいね、コメント記入欄をここに挿入 -->
+      </div>
+    <% end %>
+  </div>
+</div>
