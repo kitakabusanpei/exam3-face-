@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :topics, only: [:new, :create, :edit, :show, :update, :destroy]
 
   root 'topics#index'
