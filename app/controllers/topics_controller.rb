@@ -14,6 +14,7 @@ class TopicsController < ApplicationController
     @topic.user_id = current_user.id
     if @topic.save
       redirect_to root_path, notice: "作品を投稿しました。" # rootにしているので
+      NoticeMailer.sendmail_topic(@topic).deliver
     else
       render 'new'
     end

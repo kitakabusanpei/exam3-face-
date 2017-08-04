@@ -5,20 +5,27 @@ header {
   width: 100%;
   background-color: #4267b2;
   height: 45px;
-  font-size: 12px;
 }
 
 // ブートストラップ "navbar" の色変更
 .navbar-default {
- border-bottom: 0.5px solid #29487d;
-  max-height: 5px;
-}
-
-.navbar {
- background-color: #4267b2;
- color: white;
- margin-bottom: 0px;
-
+  border-bottom: 0.5px solid #29487d;
+  background-color: #4267b2;
+  color: white;
+  .navbar-brand-img {
+    color: white;
+    font-size: 20px;
+    &:hover {
+      color: gray;
+    }
+  }
+  .navbar-brand {
+    color: white;
+    font-size: 12px;
+    &:hover {
+      color: gray;
+    }
+  }
 }
 
 footer{
