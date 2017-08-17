@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'conversations/index'
-
-  get 'conversations/create'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
