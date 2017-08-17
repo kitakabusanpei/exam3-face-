@@ -10,16 +10,25 @@
     <%= link_to "作品を投稿する", new_topic_path %>
     <% @topics.each do |topic| %>
       <div class="row">
-        <p>さんがコメントしました。</p>
+        <p><%= topic.user.name %>さんがコメントしました。</p>
         <!-- 下線用予定 -->
-        <!-- ユーザー写真 --><!-- ユーザー名 -->
+        <div>
+        <!-- ユーザー写真 image_tagはヘルパーから持ってきてるのでメソッドを呼び出すだけで良い--><!-- ユーザー名 -->
+          <P><%= profile_img(topic.user) %><!-- , class: 'img-responsive'  -->
+          <%= topic.user.name %>さん</P>
+        </div>
                            <!-- 投稿時間 -->
+        <p>投稿時間：<%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
         <p><%= topic.content %></p>
         <p><%= image_tag topic.photo %></p>
-        <%= link_to "作品を編集する", edit_topic_path(topic.id) %><!-- 余裕があればアラートで編集、削除機能にする -->
-        <%= link_to "作品を削除する", topic_path(topic.id), method: :delete %>
+        <%= link_to "編集", edit_topic_path(topic.id) %><!-- 余裕があればアラートで編集、削除機能にする -->
+        <%= link_to "削除", topic_path(topic.id), method: :delete %>
         <div></div> <!-- 下線用予定 -->
         <!-- いいね、コメント記入欄をここに挿入 -->
+        <%= link_to topic_path(topic) do %>
+          <p>作品にコメントする</p>
+          <!-- <h4><strong><%= topic.content %></strong></h4> -->
+        <% end %>
       </div>
     <% end %>
   </div>

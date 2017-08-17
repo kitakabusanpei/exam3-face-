@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_topic, only:[:edit, :update, :destroy]
+  before_action :set_topic, only:[:show, :edit, :update, :destroy]
   def index
     @topics = Topic.all
   end
@@ -11,8 +11,10 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topics_params)
+    # 現在ログインしているユーザーのid(current_user.idのこと)をuser_id入れる
+    # これでtopicとuserのアソシエーションをすることができる
+    # ただしマイグレーションでtopicにuserのreferences型のカラムを作成していることが前提条件
     @topic.user_id = current_user.id
-    
     if @topic.save
       redirect_to root_path, notice: "作品を投稿しました。" # rootにしているので
       NoticeMailer.sendmail_topic(@topic).deliver
@@ -22,6 +24,8 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @comment = @topic.comments.build
+    @comments = @topic.comments
   end
 
   def edit

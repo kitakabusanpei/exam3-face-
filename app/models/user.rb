@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
   mount_uploader :avatar, AvatarUploader
-
-  has_many :topics
+  
+ # userが削除されたら一緒に削除する→dependent: :destroy
+  has_many :topics, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)

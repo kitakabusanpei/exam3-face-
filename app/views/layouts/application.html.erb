@@ -13,13 +13,14 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <ul class="list-inline">
-            <li><a href="#"><%= link_to "", root_path, class: "glyphicon glyphicon-phone navbar-brand-img" %></a></li>
-
+            <li><%= link_to "", root_path, class: "navbar-brand glyphicon glyphicon-phone navbar-brand-img navbar-icon" %></li>
+            <li><input type="text" class="form-control navbar-form" placeholder="残念ですが検索できません" size="22"></li>
+            <li><button class="btn btn-default glyphicon glyphicon-search navbar-form-search"></button></li>
             <% if user_signed_in? %>
               <li><%= link_to 'マイページ', edit_user_registration_path, class: "navbar-brand"%></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "navbar-brand" %></li>
               <li><%= link_to 'ホーム', root_path, class: "navbar-brand" %></li>
               <li><%= link_to 'ユーザー一覧', root_path, class: "navbar-brand" %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "navbar-brand" %></li>
             <% else %>
               <!-- <li><%= link_to 'ログイン', new_user_session_path %></li> -->
               <!-- <li><%= link_to 'サインアップ', new_user_registration_path %></li> -->
@@ -33,7 +34,8 @@
                         <input type="text" class="form-control" placeholder="残念ですが検索できません" size="10">
                       </div>
                       <button class="btn btn-default glyphicon glyphicon-search"></button>
-                    </form> -->
+                    </form>
+                   -->
 
         </div>
       </div>
