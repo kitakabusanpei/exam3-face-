@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'conversations/index'
+
+  get 'conversations/create'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
@@ -15,6 +19,14 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :comments
+  end
+
+  resources :users, only: [:index, :show]
+
+  resources :relationships, only: [:create, :destroy]
+
+  resources :conversations do
+    resources :messages
   end
 
   root 'topics#index'
