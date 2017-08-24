@@ -29,7 +29,7 @@ header {
   }
   .navbar-brand {
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     &:hover {
       color: gray;
     }
@@ -101,9 +101,40 @@ img {
 
 .topic-list{
   border-bottom: 1px solid #ccc;
-  padding: 20px;
+  padding: 10px;
+  margin: 20px 0px;
   text-align: left;
   background-color: white;
 }
 
-.line{}
+.drop_menu {
+  position: absolute;
+}
+
+.drop_menu_posi {
+  position: relative;
+  top: -5px;
+}
+
+.topic_ava_img {
+}
+
+.topic_ava_pro {
+  position: relative;
+  top: -55px;
+  left: 60px;
+}
+
+.topic_content{
+  position: relative;
+  top: -40px;
+}
+
+@media (max-width: 560px){
+  .topic_ava_pro{
+  position: static; // 戻す
+  }
+  .topic_content{
+  position: static; // 戻す
+  }
+}

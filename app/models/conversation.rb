@@ -1,9 +1,9 @@
 class Conversation < ActiveRecord::Base
   # Userモデルのモデル名に_idをつけただけのカラムではないため、class_nameを明示的に指定する必要がある。
   # 会話の送り手がユーザーモデルから参照できるようにアソシエーション
-  belong_to :sender, foreign_key: :sender_id, class_name: 'User'
+  belongs_to :sender, foreign_key: :sender_id, class_name: 'User'
   # 会話の受け手がユーザーモデルから参照できるようにアソシエーション
-  belong_to :recipient, foreign_key: :recipient, class_name: 'User'
+  belongs_to :recipient, foreign_key: :recipient, class_name: 'User'
   has_many :messages, dependent: :destroy
 
   # 送り手と受け手の重複チェック

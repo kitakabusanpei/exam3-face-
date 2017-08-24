@@ -4,26 +4,36 @@
     <h2>投稿作品集</h2>
     <%= link_to "作品を投稿する", new_topic_path %>
     <% @topics.each do |topic| %>
-        <div class="topic-list">
-        <p><%= topic.user.name %>さんが投稿しました。</p>
-        <div>
-          <%= profile_img(topic.user) %><!-- ユーザー写真 image_tagはヘルパーから持ってきてるのでメソッドを呼び出すだけで良い--><!-- ユーザー名 -->
-          <%= topic.user.name %>さん<br>
-          <%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+      <div class="topic-list">
+        <p class="drop_menu"><%= topic.user.name %>さんが投稿しました。</p>
+        <div class="dropdown text-right drop_menu_posi">
+          <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+            <li><%= link_to "編集する", edit_topic_path(topic.id) %></li>
+            <li><%= link_to "削除する", topic_path(topic.id), method: :delete %></li>
+          </ul>
         </div>
-        <p><%= topic.content %></p>
-        <%= image_tag topic.photo %>
+        <div class="topic_ava_img">
+          <p><%= profile_img(topic.user) %></p><!-- ユーザー写真 image_tagはヘルパーから持ってきてるのでメソッドを呼び出すだけで良い--><!-- ユーザー名 -->
+          <p class="topic_ava_pro">
+            <%= topic.user.name %>さん<br>
+            <%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+          </p>
+        </div>
+        <p class="topic_content">
+          <%= topic.content %></p>
+          <p><%= image_tag(topic.photo) %>
+        </p>
         <div class="line">
-        <%= link_to "編集", edit_topic_path(topic.id) %>
-        <%= link_to "削除", topic_path(topic.id), method: :delete %>
 
         <!-- いいね、コメント記入欄をここに挿入 -->
         <%= link_to topic_path(topic) do %>
           <p>作品にコメントする</p>
           </div>
-          <!-- <h4><strong><%= topic.content %></strong></h4> -->
         <% end %>
-</div>
+      </div>
     <% end %>
   </div>
 </div>
