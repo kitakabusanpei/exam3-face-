@@ -59,7 +59,8 @@ class User < ActiveRecord::Base
     SecureRandom.uuid
   end
 
-  # usersテーブルのidカラムと参照関係を持つカラムをfollower_idカラムであると定義
+  # foreign_key => 参照先を参照するための外部キーの名前を指定
+  # usersテーブルのidカラムとの参照関係を持つカラムをfollower_idカラムであると定義
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   # reverse_relationshipsというアソシエーションを定義
   # class_name: "Relationship"とすることで、Relationshipモデルに対して、アソシエーションを定義

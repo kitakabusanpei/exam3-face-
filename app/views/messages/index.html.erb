@@ -1,2 +1,38 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<!-- メッセージが１０件以上ならば以前のメッセージへのリンクを表示する -->
+<% if @over_ten %>
+  <%= link_to '以前のメッセージ', '?m=all' %>
+<% end %>
+
+<div class="ui segment">
+  <!-- メッセージを一件ずつ抽出 -->
+  <% @messages.each do |message| %>
+    <% if messages.body %>
+      <% user = User.find(message.user_id) %>
+      <div class="item">
+        <div class="conotent">
+          <div class="header">
+            <strong><%= user.name %></strong>
+            <%= message.message_time %>
+          </div>
+          <div class="list">
+            <div class="item">
+              <i class="right triangle icon"></i>
+              <%= message.body %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<!-- 会話にひもづくメッセージの入力フォームを投稿者を自分にしていして生成する -->
+<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+  <div>
+    <%= f.submit "メッセージを送る" %>
+  </div>
+<% end %>
