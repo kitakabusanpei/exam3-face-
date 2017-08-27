@@ -13,8 +13,39 @@ li {
 .top_menu {
   float: right;
 }
-.clearfix{
-  content: "";
-  display: block;
-  clear: both;
+
+.my_page {
+  margin-top: 10px;
+  text-align: left;
+  line-height: 35px;
+}
+
+.my_page_field{
+  margin-top: 10px;
+}
+
+@media (max-width: 767px){
+  .my_page {
+    text-align: center;
+    margin-top: 5px;
+    line-height: 20px;
+  }.my_page_field{
+    margin-top: 5px;
+  }
+}
+
+.my_update{
+  margin-top: 10px;
+}
+
+.img_my_posi{
+  position: relative;
+  top: 20px;
+}
+
+@media (max-width: 530px){
+  .img_my_conte{
+    position: static;
+    display:none;
+  }
 }

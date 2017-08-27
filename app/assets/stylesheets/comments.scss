@@ -6,7 +6,7 @@ ul {
 }
 
 .child li {
-  padding-top: 13px;
+  padding-top: 10px;
   border-bottom: 1px dotted #ccc;
   list-style-type: none;
 }
@@ -17,4 +17,9 @@ ul {
 
 .left {
   text-align: left;
+}
+
+.drop_comme_posi{
+  position: relative;
+  top: -65px;
 }

@@ -1,72 +1,89 @@
 <div class="container">
-  <div class="wrapper col-md-10 col-sm-10">
-    <%= alert %>
-
-    <%= form_for(resource, as: resource_name,url: registration_path(resource_name),html: { method: :put }) do |f| %>
-      <div>写真</div>
-      <div><%= @user.name %></div>
-      <div>
-        <ul class="mypage_li clearfix">
-          <li class="field">
-            <%= profile_img(@user) if profile_img(@user) %>
-            <%= f.file_field :avatar %>
-            <%= f.hidden_field :avatar_cache %>
-          </li>
-          <li  class="list-group"><%= link_to 'タイムライン', class: "list-group-item disabled"%></li>
-          <li>基本データ</li>
-          <li>友達</li>
-          <li>写真</li>
-          <li>その他</li>
-        </ul>
-      </div>
-
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-9">
+      <%= alert %>
       <%= devise_error_messages! %>
+    </div>
+    <div class="col-sm-12 col-sm-pull-4">
+      <h3>アカウント設定</h3>
+    </div>
+  </div>
+  <%= form_for(resource, as: resource_name,url: registration_path(resource_name),html: { method: :put }) do |f| %>
 
-      <div class="field">
-        <%= f.email_field :email, autofocus: true,
-            class: "form-control", placeholder: "メールアドレス" %>
+    <div class="row">
+      <div class="col-sm-3 my_page">メールアドレス</div>
+      <div class="col-sm-8 my_page_field">
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+        </div>
       </div>
+    </div>
 
-      <div class="field">
-        <%= f.text_field :name,
-            class: "form-control", placeholder: "名前" %>
+    <div class="row">
+      <div class="col-sm-3 my_page">名前</div>
+      <div class="col-sm-8 my_page_field">
+        <div class="field">
+          <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+        </div>
       </div>
+    </div>
 
-      <% if @user.provider.blank? %>
-
-
+    <% if @user.provider.blank? %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div class="field">
-        <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "新規パスワード" %>
+      <div class="row">
+        <div class="col-sm-3 my_page">新規パスワード</div>
+        <div class="col-sm-8 my_page_field">
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "変更したくない場合は空白のままにしてください" %>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation%><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", size:"30", placeholder: "新規パスワード（確認）" %>
+      <div class="row">
+        <div class="col-sm-3 my_page">確認用パスワード</div>
+        <div class="col-sm-8 my_page_field">
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", size:"30", placeholder: "新規パスワード（確認）" %>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
+      <div class="row">
+        <div class="col-sm-3 my_page">現在のパスワード</div>
+        <div class="col-sm-8 my_page_field">
+          <div class="field">
+            <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "変更確認のため現在のパスワードを入力してください" %>
+          </div>
+        </div>
       </div>
+    <% end %>
 
-      <% end %>
+    <div class="row">
+      <div class="field img_my_avater">
+        <div class="col-xs-7">
+          <%= profile_img(@user) if profile_img(@user) %>
+        </div>
+        <div class="col-xs-3 col-xs-pull-2 img_my_posi">
+          <div class="img_my_conte">画像の変更</div>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+      </div>
+    </div>
 
-<p>
+    <div class="col-sm-offset-2 col-sm-7 my_update">
       <div class="actions">
         <%= f.submit "更新", class: "btn btn-primary btn-block" %>
       </div>
-    </p>
-    <% end %>
+    </div>
+  <% end %>
 
+  <div class="col-sm-offset-2 col-sm-7">
     <h3>アカウントの削除</h3>
-
     <p>アカウントを削除しますがよろしいですか? <%= button_to "アカウントの削除", registration_path(resource_name), class: "btn btn-danger btn-sm", data: { confirm: "アカウントを削除してしまいますがよろしいですか?" }, method: :delete %></p>
-
-    <%= link_to "戻る", :back %>
+    <%= link_to "戻る", :back , class: 'btn btn-default back_btn'%>
   </div>
 </div>

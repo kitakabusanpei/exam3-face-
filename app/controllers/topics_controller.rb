@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   before_action :set_topic, only:[:show, :edit, :update, :destroy]
   def index
     @topics = Topic.all
+    @users = User.all
   end
 
   def new

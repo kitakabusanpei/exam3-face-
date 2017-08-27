@@ -16,7 +16,7 @@ class ConversationsController < ApplicationController
       @conversation = Conversation.create!(conversation_params)
     end
     # 会話にひもづくメッセージの一覧画面へ背にさせるs式
-    redirect_to converrsation_messages_path(@conversation)
+    redirect_to conversation_messages_path(@conversation)
   end
 
   private

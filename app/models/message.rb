@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :body, :conversation_id, :user_id
-  def message_tiome
+  def message_time
     # strftimeは日付データをフォーマットするメソッド
     created_at.strftime("%m/%d/%y at %l:%M %p")
   end

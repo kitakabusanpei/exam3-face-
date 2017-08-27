@@ -2,64 +2,60 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 header {
-  width: 100%;
-  background-color: #4267b2;
-  height: 50px;
+ width: 100%;
+ height: 50px;
+ position: relative;
+ margin-bottom: 30px;
 }
 
 .navbar-default {
- border: 0;
+  border: 0;
 }
+
 .navbar {
- background-color: transparent;
- color: white;
- margin-bottom: 0px;
+    background-color: #4267b2;
+    color: white;
+    margin-bottom: 0px;
 }
 .navbar-default {
-  .navbar-form{
-    font-size: 14px;
-    position: relative;
-    top: -20px;
-  }
-  .navbar-form-search{
-    font-size: 10px;
-    position: relative;
-    top: -20px;
-    left: -12px;
-  }
   .navbar-brand {
     color: white;
-    font-size: 14px;
     &:hover {
-      color: gray;
+      color: #a10b0b;
     }
   }
-  .navbar-icon{
-    font-size: 25px;
-    position: relative;
-    left: 5px;
+  .navbar-nav > li > a {
+    color: white;
+    &:hover, &:focus {
+      color: #a10b0b;
+    }
+  }
+  .navbar-nav > .open > a {
+    background-color: transparent;
+    color: white;
+    &:hover, &:focus {
+      background-color: transparent;
+      color: #a10b0b;
+    }
   }
 }
-
-@media (max-width: 767px){
-  .navbar-form{
-  // 消す
+@media (max-width: 767px) {
+  .search_form{
+    display: none;
   }
-  .navbar-form-search{
-  // 消す
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: white;
+    text-align: center;
+    &:hover, &:focus {
+      color: #7635a9;
+    }
   }
-}
-
-footer{
-  width: 100%;
-  background-color: #4267b2;
-  padding: 10px 0 5px 0;
-  margin: auto;
-  font-size: 15px;
-  // ウィンドウに固定
-  position: absolute;
-  bottom: 0;
-  color: white;
+  .navbar-default .navbar-toggle {
+    background-color: white;
+    &:hover, &:focus {
+      background-color: white;
+    }
+  }
 }
 
 html {
@@ -72,69 +68,163 @@ body {
   background-color: #f5f8fa;
 }
 
+footer{
+  width: 100%;
+  background-color: #4267b2;
+  padding: 10px 0 5px 0;
+  color: white;
+  margin: auto;
+  font-size: 15px;
+  // ウィンドウに固定
+  position: absolute;
+  bottom: 0;
+}
+
 // フラッシュメッセージ
 .flash {
   color: white;
   padding-top: 10px;
 }
 
-// image_magick
 img {
+  max-width: 60%;
+}
+
+.img_avater img {
   max-width: 10%;
+}
+
+.img_my_avater img {
+  max-width: 30%;
+  text-align: left;
+  margin-top: 10px
+}
+
+.user_img img {
+  max-width: 40%;
+}
+
+.follo_image img {
+  float:left;
+  margin: 5px 0px;
+  max-width: 150px;
+  max-height: 100px;
 }
 
 .wrapper {
   border-bottom: 74px;
-  padding: 20px 20px 20px 35px;
+  padding: 0px 10px 10px 25px;
 }
-.row {
-  border-bottom: 1px solid #ccc;
-  padding: 20px;
-  text-align: left;
-  word-wrap: break-word;
-}
-
 
 .container {
   padding-bottom: 85px;
 }
 
 .topic-list{
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
   padding: 10px;
   margin: 20px 0px;
   text-align: left;
   background-color: white;
 }
 
+.line{
+  padding-top: 5px;
+  border-top: 1px solid #ccc;
+}
+
 .drop_menu {
-  position: absolute;
+  background-color: #4267b2;
+  z-index: 1000;
 }
 
-.drop_menu_posi {
+.content_name{
   position: relative;
-  top: -5px;
+  top: 5px;
 }
-
-.topic_ava_img {
+.drop_menu_posi{
+  position: relative;
+  top: -25px;
 }
-
 .topic_ava_pro {
   position: relative;
   top: -55px;
-  left: 60px;
+  left: 70px;
 }
 
 .topic_content{
+  font-size: 18px;
   position: relative;
-  top: -40px;
+  top: -25px;
 }
 
-@media (max-width: 560px){
+.topic_content_image {
+  position: relative;
+  top: -10px;
+}
+
+@media (max-width: 670px){
   .topic_ava_pro{
   position: static; // 戻す
   }
   .topic_content{
   position: static; // 戻す
   }
+}
+
+.user-list{
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+  background-color: white;
+}
+
+@media (max-width: 670px){
+  .user-list{
+  text-align: center;
+  margin: 0px 20px 5px 10px;
+  }
+}
+
+.follo{
+  margin: 0px 0px 10px 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.follo_name {
+  line-height: 100px;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.follo_main {
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+
+.back_btn{
+  margin-top: 10px;
+}
+
+.comment_content{
+  float:left;
+}
+
+.topic-text{
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.comment_list{
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 10px;
 }

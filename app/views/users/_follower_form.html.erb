@@ -1,0 +1,6 @@
+<% @user.followers.each do |user| %>
+  <div class="follo_main">
+    <div class="follo_image"><%= profile_img(user)%></div>
+    <div class="follo_name clearfix"><%= user.name %>さん</div>
+  </div>
+<% end %>

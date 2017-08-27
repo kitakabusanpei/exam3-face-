@@ -1,19 +1,24 @@
 <div class="container">
-  <h2>ユーザー</h2>
+<div class="row">
+  <h3>ユーザー一覧</h3>
   <% @users.each do |user| %>
-    <div class="container-child col-md-2 col-sm-4 col-xs-6">
-      <%= link_to profile_img(user), user_path(user.id) %>
+    <div class="user-list col-md-12 col-sm-12 col-xs-12">
+        <div class="user_img col-md-6 col-sm-6 col-xs-11">
+      <%= link_to profile_img(user), user_path(user.id) %><br>
+    </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+      <%= link_to user.name, user %>さん<br>
       <%= user.email %>
+      </div>
       <% if user.id != current_user.id %>
-        <li>
-          <div class="item">
-              <%= link_to user.name, user %>
-              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+        <li class="col-md-6 col-sm-6 col-xs-12">
+          <div>
+              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>を送る
           </div>
           <%= render partial: 'follow_form', locals: { user: user } if signed_in? %>
         </li>
       <% end%>
-      <%= render 'follow_form', user: user %>
     </div>
   <% end %>
+</div>
 </div>

@@ -9,22 +9,40 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-default"><!-- navbar-fixed-top 固定させる -->
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <ul class="list-inline">
-            <li><%= link_to "", root_path, class: "glyphicon glyphicon-phone navbar-brand-img navbar-icon navbar-brand" %></li>
-              <li><input type="text" class="form-control navbar-form" placeholder="検索機能はありません" size="22"></li>
-              <li><button class="btn btn-default glyphicon glyphicon-search navbar-form-search"></button></li>
-              <% if user_signed_in? %>
-                <li><%= link_to 'マイページ', edit_user_registration_path, class: "navbar-brand" %></li>
-                <li><%= link_to 'ホーム', root_path, class: "navbar-brand" %></li>
-                <li><%= link_to 'ユーザー一覧', users_path, class: "navbar-brand" %></li><!-- if user_signed_in?抜いてしまったが -->
-                <li><%= link_to 'メッセージ', conversations_path, class: "navbar-brand" %></li>
-                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "navbar-brand" %></li>
-              <% else %>
-              <!-- <li><%= link_to 'ログイン', new_user_session_path, class: "navbar-brand" %></li> -->
-              <!-- <li><%= link_to 'サインアップ', new_user_registration_path, class: "navbar-brand" %></li> -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "", root_path, class: "glyphicon glyphicon-phone navbar-brand" %>
+          <form class="navbar-form navbar-left search_form" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control navbar-form search_form" placeholder="検索機能はありません" size="22">
+            </div>
+            <button class="btn btn-default glyphicon glyphicon-search"></button>
+          </form>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="drop_menu"><%= link_to 'マイページ', edit_user_registration_path %></li>
+              <li class="dropdown drop_menu">
+                <a href="#" class="dropdown-toggle drop_menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu drop_menu">
+                  <li class="drop_menu"><%= link_to '投稿一覧', root_path %></li>
+                  <li class="drop_menu"><%= link_to 'ユーザー', users_path if user_signed_in? %></li>
+                  <li class="drop_menu"><%= link_to 'メッセージ', conversations_path %></li>
+                </ul>
+              </li>
+              <li class="drop_menu"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li class="drop_menu"><%= link_to 'ログイン', new_user_session_path %></li>
+              <li class="drop_menu"><%= link_to 'サインアップ', new_user_registration_path %></li>
             <% end %>
           </ul>
         </div>

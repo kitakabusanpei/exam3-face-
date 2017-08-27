@@ -3,7 +3,7 @@ class Conversation < ActiveRecord::Base
   # 会話の送り手がユーザーモデルから参照できるようにアソシエーション
   belongs_to :sender, foreign_key: :sender_id, class_name: 'User'
   # 会話の受け手がユーザーモデルから参照できるようにアソシエーション
-  belongs_to :recipient, foreign_key: :recipient, class_name: 'User'
+  belongs_to :recipient, foreign_key: :recipient_id, class_name: 'User'
   has_many :messages, dependent: :destroy
 
   # 送り手と受け手の重複チェック
