@@ -1,20 +1,19 @@
 <div class="container">
-
-    <h2><%= @user.name %>さんのフォローページ</h2>
-    <div class="row">
-    <div class="col-md-5 col-sm-5 col-xs-10 follo">
-          <h3>フォローユーザー</h3>
-    <%= render 'followed_form' %>
-  </div>
-  <div class="col-md-5 col-sm-5 col-xs-10 follo">
-    <h3 class="user-follower">フォロワーユーザー</h3>
-    <!-- 「自分」と「自分”が”フォローしている人」user.followersでフォロワーが取得 -->
-    <%= render 'follower_form' %>
-  </div>
-</div>
+  <h2><%= @user.name %>さんのフォローページ</h2>
   <div class="row">
-  <div class="col-md-12 col-sm-12 col-xs-12 ">
-    <p><%= link_to "一覧画面にもどる", users_path, class: "btn btn-large btn-primary back-followed" %></p>
+    <div class="col-md-5 col-sm-5 col-xs-10 follo">
+      <h3>フォローユーザー</h3>
+      <%= render 'followed_form' %>
+    </div>
+    <div class="col-md-5 col-sm-5 col-xs-10 follo">
+      <h3 class="user-follower">フォロワーユーザー</h3>
+      <!-- 「自分」と「自分”が”フォローしている人」user.followersでフォロワーが取得 -->
+      <%= render 'follower_form' %>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 ">
+      <p><%= link_to "一覧画面にもどる", users_path, class: "btn btn-default back_btn back-followed" %></p>
+    </div>
+  </div>
 </div>

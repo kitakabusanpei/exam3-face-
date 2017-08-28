@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 header {
  width: 100%;
- height: 50px;
- position: relative;
- margin-bottom: 30px;
+ height: 54px;
+ background-color: #4267b2;
+margin-bottom: 30px;
 }
 
 .navbar-default {
@@ -13,21 +13,21 @@ header {
 }
 
 .navbar {
-    background-color: #4267b2;
-    color: white;
-    margin-bottom: 0px;
+ background-color: transparent;
+ color: white;
+ margin-bottom: 0px;
 }
 .navbar-default {
   .navbar-brand {
     color: white;
     &:hover {
-      color: #a10b0b;
+      color: darkgray;
     }
   }
   .navbar-nav > li > a {
     color: white;
     &:hover, &:focus {
-      color: #a10b0b;
+      color: darkgray;
     }
   }
   .navbar-nav > .open > a {
@@ -35,19 +35,22 @@ header {
     color: white;
     &:hover, &:focus {
       background-color: transparent;
-      color: #a10b0b;
+      color: white;
     }
   }
 }
+
+.search_form{
+  position: relative;
+  top: -3px;
+}
+
 @media (max-width: 767px) {
-  .search_form{
-    display: none;
-  }
-.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: white;
     text-align: center;
     &:hover, &:focus {
-      color: #7635a9;
+      color: white;
     }
   }
   .navbar-default .navbar-toggle {
@@ -56,6 +59,18 @@ header {
       background-color: white;
     }
   }
+  .search_form{
+    display: none;
+  }
+  .drop_menu {
+    background-color: #4267b2;
+    z-index: 1000;
+  }
+}
+
+.drop_menu {
+  background-color: white;
+  z-index: 1000;
 }
 
 html {
@@ -111,6 +126,14 @@ img {
   max-height: 100px;
 }
 
+.message_ava img {
+  border-radius: 30px;
+  max-width: 40px;
+  max-height: 40px;
+  position: relative;
+  top: 5px;
+}
+
 .wrapper {
   border-bottom: 74px;
   padding: 0px 10px 10px 25px;
@@ -131,11 +154,6 @@ img {
 .line{
   padding-top: 5px;
   border-top: 1px solid #ccc;
-}
-
-.drop_menu {
-  background-color: #4267b2;
-  z-index: 1000;
 }
 
 .content_name{
