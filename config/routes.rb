@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :comments
+    post :confirm, on: :collection # 追記
   end
 
   resources :users, only: [:index, :show]

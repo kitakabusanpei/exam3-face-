@@ -11,7 +11,7 @@
         </button>
           <p class="right dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
             <%= link_to '編集する', edit_topic_comment_path(topic, comment), class: "fa fa-pencil-square-o fa-lg" %><br>
-            <%= link_to '削除する', topic_comment_path(topic, comment), id: "comments_area", class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { comfirm: '本当に削除していいですか？'} %>
+            <%= link_to '削除する', topic_comment_path(topic, comment), id: "comments_area", class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？'} %>
           </p>
         </div>
         <% end %>

@@ -13,7 +13,7 @@ margin-bottom: 30px;
 }
 
 .navbar {
- background-color: transparent;
+ background-color: #4267b2;
  color: white;
  margin-bottom: 0px;
 }
@@ -31,11 +31,11 @@ margin-bottom: 30px;
     }
   }
   .navbar-nav > .open > a {
-    background-color: transparent;
+    background-color: #4267b2;
     color: white;
     &:hover, &:focus {
       background-color: transparent;
-      color: white;
+      // color: white;
     }
   }
 }
@@ -43,6 +43,11 @@ margin-bottom: 30px;
 .search_form{
   position: relative;
   top: -3px;
+}
+
+.drop_menu li {
+  background-color: white;
+  z-index: 1000;
 }
 
 @media (max-width: 767px) {
@@ -66,12 +71,13 @@ margin-bottom: 30px;
     background-color: #4267b2;
     z-index: 1000;
   }
+  .drop_menu li {
+    background-color: #4267b2;
+    z-index: 1000;
+  }
 }
 
-.drop_menu {
-  background-color: white;
-  z-index: 1000;
-}
+
 
 html {
   position: relative;

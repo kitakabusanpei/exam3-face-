@@ -1,8 +1,8 @@
-<%= form_for([topic,comment],) do |f| %>
+<!-- remote: trueで、Ajax的動作 -->
+<%= form_for([topic, comment], remote: true) do |f| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= comment.errors.count %>件のエラーがあります。</h2>
-
       <ul>
         <% comment.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -11,13 +11,11 @@
     </div>
   <% end %>
 
-  <%= form_for([topic, comment], remote: true) do |f| %>
-    <%= f.hidden_field :topic_id %>
-    <div class="field">
-      <%= f.text_field :content, placeholder: "内容", class: "form-control" %>
-    </div>
-    <div class="actions">
-      <%= f.submit "コメントする", class: "btn btn-primary back_btn"  %>
-    </div>
-  <% end %>
+  <%= f.hidden_field :topic_id %>
+  <div class="field">
+    <%= f.text_field :content, placeholder: "内容", class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "コメントする", class: "btn btn-primary back_btn"  %>
+  </div>
 <% end %>

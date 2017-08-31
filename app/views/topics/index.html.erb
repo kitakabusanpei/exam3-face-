@@ -6,7 +6,7 @@
     <% @users.each do |user| %>
       <% if user.id == current_user.id %>
         <p class="img_avater topic-list">
-          <%= profile_img(user) %><%= user.name %>さん、
+          <%= profile_img(user) %>　<%= user.name %>さん、
           <%= link_to "何をしているか投稿しましょう！", new_topic_path %>
         </p>
         <% break %>
