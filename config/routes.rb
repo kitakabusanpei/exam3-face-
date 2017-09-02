@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  # topicに複数のコメントが属している関係
+  # 親モデル：ブログ、子モデル：コメント
+  # urlアドレスが/blogs/:blog_id/commentsの形になる
   resources :topics do
     resources :comments
     post :confirm, on: :collection # 追記

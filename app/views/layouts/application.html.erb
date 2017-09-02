@@ -32,7 +32,7 @@
             <% if user_signed_in? %>
               <li class="drop_menu"><%= link_to 'マイページ', edit_user_registration_path %></li>
               <li class="dropdown drop_menu">
-                <a href="#" class="dropdown-toggle drop_menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle drop_menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">メニュー<span class="caret"></span></a>
                 <ul class="dropdown-menu drop_menu">
                   <li class="drop_menu"><%= link_to '投稿一覧', root_path %></li>
                   <li class="drop_menu"><%= link_to 'ユーザー', users_path if user_signed_in? %></li>

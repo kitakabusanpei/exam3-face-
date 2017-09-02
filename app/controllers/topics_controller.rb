@@ -25,7 +25,10 @@ class TopicsController < ApplicationController
   end
 
   def show
+    # buildでtopicにcommentsのtopic_idを持たせることができる
+    # commentに関連性を持たせたインスタンスができる
     @comment = @topic.comments.build
+    # topicのコメント
     @comments = @topic.comments
   end
 

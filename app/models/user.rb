@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
  # userが削除されたら一緒に削除する→dependent: :destroy
   has_many :topics, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)
@@ -81,4 +82,8 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+
+  has_many :conversations, foreign_key: "sender_id", dependent: :destroy
+  has_many :reverse_conversations, foreign_key: "recipient_id", class_name: "Conversation", dependent: :destroy
+
 end

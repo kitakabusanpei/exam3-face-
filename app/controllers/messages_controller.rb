@@ -25,6 +25,7 @@ class MessagesController < ApplicationController
     end
 
     # 新規投稿のメッセージ用の変数を作成する
+    # buildでconversation_idを渡す
     @message = @conversation.messages.build
   end
 

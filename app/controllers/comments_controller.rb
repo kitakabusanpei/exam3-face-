@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
     # topicをパラメータの値から探し出し,topic_idに紐づくcommentsとしてbuildします。
     @comment = current_user.comments.build(comment_params)
     @topic = @comment.topic
+    # respond_to クライアント（ブラウザ）からの要求に応じて、異なるテンプレートを呼び出すメソッド
+    # do ... endで囲む。ただし、クライアント側(View)は remote: true を定義しないといけない
     respond_to do |format|
       if @comment.save
         flash.now[:notice] = 'コメントを投稿しました。'

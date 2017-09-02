@@ -2,6 +2,7 @@
 <div class="container">
   <div class="message_btn row">
     <div class="col-md-11 col-sm-11 col-xs-offset-1 col-xs-11">
+      <h4>メッセージ一覧</h4>
       <p><%= notice %></p>
     <% if @over_ten %>
       <%= link_to '以前のメッセージ', '?m=all', class: 'btn btn-default back_btn' %>
@@ -52,7 +53,7 @@
   <% end %>
   <div class="row">
     <div class="col-md-11 col-sm-11 col-xs-offset-1 col-xs-11">
-      <p><%= link_to 'メッセージ一覧に戻る', conversations_path, class: "btn btn-default back_btn back-followed"%></p>
+      <p><%= link_to 'メッセージ - ユーザー一覧に戻る', conversations_path, class: "btn btn-default back_btn back-followed"%></p>
     </div>
   </div>
 </div>
