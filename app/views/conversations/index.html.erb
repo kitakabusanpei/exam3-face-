@@ -14,7 +14,7 @@
               <% if conversation.target_user(current_user).present? %>
                 <!-- conversation_messages_path()はリンクを生成するヘルパーメソッド -->
                 <!-- Prefix列で確認できる(rake routes) -->
-                <div class="messe_ava" >
+                <div class="messe_ava">
                 <%= profile_img(conversation.target_user(current_user)) %>
                 <%= link_to "#{conversation.target_user(current_user).name}さん", conversation_messages_path(conversation)%>
               </div>

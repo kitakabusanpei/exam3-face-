@@ -131,31 +131,27 @@ img {
 
 .user_img img {
   max-width: 40%;
-  max-width: 130px;
-  max-height: 100px;
-  min-width: 130px;
-  min-width: 100px;
+  width: 120px;
+  height: 120px;
 }
 
 .follo_image img {
   float:left;
   margin: 5px 0px;
-  max-width: 150px;
-  max-height: 100px;
-  min-width: 150px;
-  min-width: 100px;
+  width: 110px;
+  height: 110px;
 }
 
 .messe_ava img {
-  border-radius: 30px;
-  max-width: 40px;
-  max-height: 40px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 .message_ava img {
-  border-radius: 30px;
-  max-width: 40px;
-  max-height: 40px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   position: relative;
   top: 5px;
 }
