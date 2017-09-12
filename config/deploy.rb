@@ -5,7 +5,7 @@ set :repo_url, 'https://github.com/kitakabusanpei/exam3-face-.git'
 
 set :branch, ENV['BRANCH'] || 'master'
 
-set :deploy_to, '/var/www/exam'
+set :deploy_to, '/var/www/exam3'
 
 set :linked_files, %w{.env config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
