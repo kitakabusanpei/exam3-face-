@@ -1,6 +1,6 @@
 lock '3.6.0'
 
-set :application, 'exam3-face-'
+set :application, 'exam3'
 set :repo_url, 'https://github.com/kitakabusanpei/exam3-face-.git'
 
 set :branch, ENV['BRANCH'] || 'master'
