@@ -12,5 +12,5 @@
 !/log/.keep
 /tmp
 
-# dontenv-rails
+# dotenv-rails
 .env
