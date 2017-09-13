@@ -10,6 +10,6 @@ class NoticeMailer < ApplicationMailer
     @topic = topic
 
     mail to: "kouhei.w.56@gmail.com",
-      subject: '【facedog】作品が投稿されました'
+      subject: '【faceもどき】作品が投稿されました'
   end
 end
