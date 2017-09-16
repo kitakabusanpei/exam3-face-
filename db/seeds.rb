@@ -9,7 +9,7 @@
 
 n = 1
 m = 1
-while n <= 30
+while n <= 10
   email = Faker::Internet.email
   name = Faker::Color.color_name
   password = "password"
