@@ -6,27 +6,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-100.times do |n|
+
+n = 1
+m = 1
+while n <= 30
   email = Faker::Internet.email
-  name = "name"
+  name = Faker::Color.color_name
   password = "password"
+  uid = SecureRandom.uuid
   User.create!(email: email,
                password: password,
                password_confirmation: password,
                name: name,
+               uid: uid,
                )
-end
 
-n = 1
-m = 1
-while n <= 100
-  Topic.create(content: "あああ",
+  Topic.create(
+               content: Faker::Book.title,
                user_id: n
-  )
-  Comment.create(content: "コメコメ"
+               )
+  Comment.create(
+                 content: "iroiro",
                  topic_id: m,
                  user_id: n
-  )
+                 )
   m = m + 1
   n = n + 1
 end
